@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registration_Numbers</title>
+
+  <link rel="stylesheet" href="./css/simple-grid.css">
+  <link rel="stylesheet" href="./css/Registration_Numbers.css">
+
+</head>
+
+<body>
+  <!--Header section-->
+  <div class="row">
+    <div class="col-12">
+      <header>
+        <h1>Registration Numbers</h1>
+      </header>
+    </div>
+  </div>
+  <!--input Registration section-->
+  <div class="row">
+    <div class="col-12">
+      <div class="Regheader">
+        <span class="regnum">Registration Number:</span>
+        <input type="text" name="Reginput" class="EnterReg" value="" placeholder="Enter Registration Number">
+        <button type="button" name="button" class="AddReg">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!--Selected Town-->
+
+  <div class="row">
+    <div class="col-12">
+      <span class="town">Town:</span>
+      <div class="SelectedTown">
+        <select class="townName" name="">
+    <option value="">Select Town</option>
+    <option value="All">SelectAllTown</option>
+    <option value="CA">Cape Town</option>
+    <option value="CL">Paarl</option>
+    <option value="CJ">George</option>
+    <option value="CK">Stellenbosh</option>
+    </select>
+      </div>
+    </div>
+  </div>
+  <!--display Registration number section-->
+  <div class="row">
+    <div class="col-8">
+      <div class="displayReg">
+        <ul class="displayList">
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="./js/Registration_Numbers.js"></script>
+</body>
+
+</html>
