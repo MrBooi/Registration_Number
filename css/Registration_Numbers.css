@@ -80,3 +80,52 @@ header h1 {
   margin-left: 20px;
   overflow: hidden;
 }
+
+
+
+.clearBtn {
+  width: 30%;
+  background-color: lightgreen;
+  color: white;
+  padding: 12px 12px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+
+@media screen and (min-width:1000px) {
+  header h1 {
+    text-align: left;
+    font-size:2rem;
+    padding-left: 10px;
+  }
+
+  .Regheader, .regnum {
+    font-size: 1.4rem;
+    display:block;
+  }
+
+  .Regheader input[type="text"] {
+    width: 40%;
+  }
+
+  .AddReg {
+    width: 15%;
+  }
+
+  .townName {
+    width: 40%;
+  }
+
+
+  .displayList li {
+    font-size: 1.5rem;
+    margin-left: 130px;
+  }
+
+  .clearBtn {
+    width: 15%;
+
+  }
+}
