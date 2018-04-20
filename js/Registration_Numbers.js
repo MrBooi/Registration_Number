@@ -13,13 +13,13 @@ function RegNumberStorage(storedRegNumbers) {
   // set Registration number
   function setReg(value) {
     if (value !=="" && value.startsWith("CA") || value.startsWith("CL") || value.startsWith("CAW") || value.startsWith("CJ")) {
-      regNumber = value;
+      regNumber = value.toUpperCase();
     } else {
       notFoundMessage = "Sorry the registration number you entered is incorrect";
     }
 
   }
-  // add Registration Numbers into localstorage
+  // add Registration Numbers into Map
   function setRegNumbers() {
     if (storedRegNumbers) {
       RegNumberMap = storedRegNumbers;
@@ -59,16 +59,21 @@ function RegNumberStorage(storedRegNumbers) {
     var regNums = Object.keys(storedRegNumbers);
     location.hash = filterTown;
     switch (filterTown) {
-      case "":
-      case "#":
-        displayReg.innerHTML = "";
+      case "AllTown":
+      case "#AllTown":
+         displayReg.innerHTML = "";
+      if (regNums.length > 0) {
+        for (var i = 0; i < regNums.length; i++) {
+          createItems(regNums[i]);
+        }
+      }
         break;
       case "Cape Town":
       case "#Cape Town":
         displayReg.innerHTML = "";
         if (regNums.length > 0) {
           for (var i = 0; i < regNums.length; i++) {
-            if (regNums[i].startsWith("CA ")) {
+            if (regNums[i].startsWith("CA")&&regNums[i].charAt(2) !=="W") {
               createItems(regNums[i]);
             }
           }
@@ -109,11 +114,7 @@ function RegNumberStorage(storedRegNumbers) {
         }
         break;
       default:
-        if (regNums.length > 0) {
-          for (var i = 0; i < regNums.length; i++) {
-            createItems(regNums[i]);
-          }
-        }
+    displayReg.innerHTML = "";
     }
   }
 
@@ -148,7 +149,7 @@ var storedRegNumbers = localStorage.getItem('RegNumbers') ? JSON.parse(localStor
 var addRegistration = RegNumberStorage(storedRegNumbers);
 
 function registrationEntered() {
-  var regText = EnteredReg.value.trim();
+  var regText = EnteredReg.value.trim().toUpperCase();
 
   if (regText !== "" && regText.startsWith("CA") || regText.startsWith("CJ") ||
     regText.startsWith("CL") || regText.startsWith("CAW")) {
@@ -176,7 +177,9 @@ BtnAddReg.addEventListener("click", function() {
 
 RegClearBtn.addEventListener("click", function() {
   addRegistration.clearLocal(); // clear Object that store Registration_Numbers
-  location.hash ="";         // clear the location.hash
+  location.hash ="";
+  EnteredReg.value="";
+  selectDrop.value ="AllTown";        // clear the location.hash
   messageAlert.innerHTML  =""; // clear the message
   window.location.reload();    //reload the page so that it can clear local storage
 

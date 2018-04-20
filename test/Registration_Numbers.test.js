@@ -47,6 +47,20 @@ describe('The Registration_Numbers function', function() {
       assert.deepEqual(addRegistration.getMap() ,{ 'CAW 123': 0});
   });
 
+  it('should display "{\'CAW 123\': 0, \'CA 123\':0, "CJ 123":0 , \'CL 123\':0}" this object if user entered all registration numbers ', function() {
+     var addRegistration = RegNumberStorage();
+      addRegistration.setRegistration('CAW 123');
+       addRegistration.localRegSet();
+       addRegistration.setRegistration('CA 123');
+       addRegistration.localRegSet();
+       addRegistration.setRegistration('CJ 123');
+       addRegistration.localRegSet();
+       addRegistration.setRegistration('CL 123');
+       addRegistration.localRegSet();
+       console.log(addRegistration.getMap());
+      assert.deepEqual(addRegistration.getMap() ,{'CAW 123': 0, 'CA 123':0, "CJ 123":0 , 'CL 123':0});
+  });
+
 
 
 });

@@ -99,7 +99,7 @@ color: orange;
 
 
 .clearBtn {
-  width: 30%;
+  width: 20%;
   background-color: lightgreen;
   color: white;
   padding: 12px 12px;
@@ -151,6 +151,5 @@ color: orange;
 
   .clearBtn {
     width: 20%;
-
   }
 }
