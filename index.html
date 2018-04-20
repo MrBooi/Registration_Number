@@ -6,10 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Registration_Numbers</title>
-
+  <!-- stylesheet for css -->
   <link rel="stylesheet" href="./css/simple-grid.css">
   <link rel="stylesheet" href="./css/Registration_Numbers.css">
-
 </head>
 
 <body>
@@ -21,6 +20,7 @@
       </header>
     </div>
   </div>
+  <div class="container">
   <!--input Registration section-->
   <div class="row">
     <div class="col-12">
@@ -28,6 +28,9 @@
         <span class="regnum">Registration Number:</span>
         <input type="text" name="Reginput" class="EnterReg" value="" placeholder="Enter Registration Number">
         <button type="button" name="button" class="AddReg">Add</button>
+        <div class="messageDisplay  ">
+      <p>Sorry the registration number you entered is incorrect</p>
+        </div>
       </div>
     </div>
   </div>
@@ -38,20 +41,20 @@
     <div class="col-12">
       <span class="town">Town:</span>
       <div class="SelectedTown">
-        <select class="townName" name="">
-    <option value="">Select Town</option>
+    <select class="townName" name="">
     <option value="AllTown">SelectAllTown</option>
     <option value="Cape Town">Cape Town</option>
     <option value="Paarl">Paarl</option>
     <option value="George">George</option>
     <option value="Stellenbosh">Stellenbosh</option>
     </select>
+    <button type="button" name="button" class="clearBtn">Clear</button>
       </div>
     </div>
   </div>
   <!--display Registration number section-->
   <div class="row">
-    <div class="col-8">
+    <div class="col-10">
       <div class="displayReg">
         <ul class="displayList">
 
@@ -61,12 +64,12 @@
   </div>
 
 <!-- clearButton -->
- <div class="row">
+ <!-- <div class="row">
    <div class="col-12">
-     <button type="button" name="button" class="clearBtn">Clear</button>
-   </div>
- </div>
 
+   </div>
+ </div> -->
+  </div>
 
 
 

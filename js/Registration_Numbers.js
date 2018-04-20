@@ -12,7 +12,7 @@ function RegNumberStorage(storedRegNumbers) {
   var notFoundMessage = "";
   // set Registration number
   function setReg(value) {
-    if (value.startsWith("CA") || value.startsWith("CL") || value.startsWith("CK") || value.startsWith("CJ")) {
+    if (value !=="" && value.startsWith("CA") || value.startsWith("CL") || value.startsWith("CAW") || value.startsWith("CJ")) {
       regNumber = value;
     } else {
       notFoundMessage = "Sorry the registration number you entered is incorrect";
@@ -28,7 +28,7 @@ function RegNumberStorage(storedRegNumbers) {
       // checking if Registration allready exist
       if (RegNumberMap[regNumber] === undefined) {
         RegNumberMap[regNumber] = 0;
-        createItems(regNumber);
+
       }
 
     }
@@ -45,12 +45,8 @@ function RegNumberStorage(storedRegNumbers) {
 
   // incorrect regNumber
   function notFoundTown() {
-
     return notFoundMessage;
   }
-
-
-
   //   creaate an Element
   function createItems(reg) {
     var li = document.createElement("li");
@@ -72,7 +68,7 @@ function RegNumberStorage(storedRegNumbers) {
         displayReg.innerHTML = "";
         if (regNums.length > 0) {
           for (var i = 0; i < regNums.length; i++) {
-            if (regNums[i].startsWith("CA")) {
+            if (regNums[i].startsWith("CA ")) {
               createItems(regNums[i]);
             }
           }
@@ -94,7 +90,7 @@ function RegNumberStorage(storedRegNumbers) {
         displayReg.innerHTML = "";
         if (regNums.length > 0) {
           for (var i = 0; i < regNums.length; i++) {
-            if (regNums[i].startsWith("CK")) {
+            if (regNums[i].startsWith("CAW")) {
               createItems(regNums[i]);
             }
           }
@@ -153,33 +149,37 @@ var addRegistration = RegNumberStorage(storedRegNumbers);
 
 function registrationEntered() {
   var regText = EnteredReg.value.trim();
-  if (regText !== "") {
+
+  if (regText !== "" && regText.startsWith("CA") || regText.startsWith("CJ") ||
+    regText.startsWith("CL") || regText.startsWith("CAW")) {
     // set Registration number
     addRegistration.setRegistration(regText);
     // update localStorage
     addRegistration.localRegSet();
     //set data into a map
     localStorage.setItem("RegNumbers", JSON.stringify(addRegistration.getMap()));
-    // addRegistration.createLi(regText);
+    addRegistration.createLi(regText);
     EnteredReg.value = "";
+    messageAlert.innerHTML = "";
+    messageAlert.classList.remove("addDisplay");
+    return;
   }
-  else {
-     messageAlert.innerHTML = addRegistration.getMessage();
-  }
+  messageAlert.innerHTML = "Sorry the registration number you entered is incorrect";
+ messageAlert.classList.add("addDisplay");
 }
-
-
-
-
 
 BtnAddReg.addEventListener("click", function() {
   registrationEntered();
 });
 
 
+
 RegClearBtn.addEventListener("click", function() {
-  addRegistration.clearLocal();
-  window.location.reload();
+  addRegistration.clearLocal(); // clear Object that store Registration_Numbers
+  location.hash ="";         // clear the location.hash
+  messageAlert.innerHTML  =""; // clear the message
+  window.location.reload();    //reload the page so that it can clear local storage
+
 
 });
 
