@@ -23,12 +23,12 @@ describe('The Registration_Numbers function', function() {
   });
 
 
-  it('should display a Message called "Sorry the registration number you entered is incorrect" if user entered registration number'
-  + " does not startsWith CA, CL , CJ ,CAW", function() {
-     var addRegistration = RegNumberStorage();
-      addRegistration.setRegistration(" 123");
-    assert.equal(addRegistration.getMessage() ,"Sorry the registration number you entered is incorrect");
-  });
+  // it('should display a Message called "Sorry the registration number you entered is incorrect" if user entered registration number'
+  // + " does not startsWith CA, CL , CJ ,CAW", function() {
+  //    var addRegistration = RegNumberStorage();
+  //     addRegistration.setRegistration(" 123");
+  //   assert.equal(addRegistration.getMessage() ,"Sorry the registration number you entered is incorrect");
+  // });
 
   it('should display this object "{ CAW 123: 0, CA 123: 0 }" if user entered the following registration numbers CAW 123 and CA 123 ', function() {
      var addRegistration = RegNumberStorage();

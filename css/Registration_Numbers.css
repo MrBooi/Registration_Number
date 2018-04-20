@@ -5,6 +5,7 @@
 
 body {
   background-color: white;
+
 }
 
 header {
@@ -116,6 +117,10 @@ color: orange;
     padding-left: 10px;
   }
 
+
+Regheader{
+  padding-bottom: 4rem;
+}
   .Regheader, .regnum {
     font-size: 1.4rem;
     display:block;

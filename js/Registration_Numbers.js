@@ -7,18 +7,18 @@ var messageAlert = document.querySelector('.messageDisplay');
 // factory function
 function RegNumberStorage(storedRegNumbers) {
   var regNumber = "";
-  var RegNumberMap = {};
-  var tempTown = {};
+  var RegNumberMap = storedRegNumbers|| {};
   var notFoundMessage = "";
   // set Registration number
   function setReg(value) {
+    if(RegNumberMap[value]===undefined){
     if (value !=="" && value.startsWith("CA") || value.startsWith("CL") || value.startsWith("CAW") || value.startsWith("CJ")) {
       regNumber = value.toUpperCase();
-    } else {
-      notFoundMessage = "Sorry the registration number you entered is incorrect";
+      return true;
     }
-
+    return false;
   }
+}
   // add Registration Numbers into Map
   function setRegNumbers() {
     if (storedRegNumbers) {
@@ -150,27 +150,29 @@ var addRegistration = RegNumberStorage(storedRegNumbers);
 
 function registrationEntered() {
   var regText = EnteredReg.value.trim().toUpperCase();
-
-  if (regText !== "" && regText.startsWith("CA") || regText.startsWith("CJ") ||
-    regText.startsWith("CL") || regText.startsWith("CAW")) {
-    // set Registration number
-    addRegistration.setRegistration(regText);
-    // update localStorage
-    addRegistration.localRegSet();
-    //set data into a map
-    localStorage.setItem("RegNumbers", JSON.stringify(addRegistration.getMap()));
-    addRegistration.createLi(regText);
-    EnteredReg.value = "";
-    messageAlert.innerHTML = "";
+    if(addRegistration.setRegistration(regText)){
+      addRegistration.localRegSet();
+      localStorage.setItem("RegNumbers", JSON.stringify(addRegistration.getMap()));
+    addRegistration.createLi(addRegistration.getRegNumber());
     messageAlert.classList.remove("addDisplay");
-    return;
-  }
-  messageAlert.innerHTML = "Sorry the registration number you entered is incorrect";
- messageAlert.classList.add("addDisplay");
+    }
+
+ if (regText ==="" && (!regText.startsWith("CA") || !regText.startsWith("CJ") ||!regText.startsWith("CL") || !regText.startsWith("CAW"))) {
+       // messageAlert.innerHTML = "Sorry the registration number you entered is incorrect";
+       messageAlert.classList.add("addDisplay");
+     }
+     else {
+         messageAlert.innerHTML = "";
+     }
+
+
+
 }
 
 BtnAddReg.addEventListener("click", function() {
   registrationEntered();
+  EnteredReg.value = "";
+
 });
 
 
