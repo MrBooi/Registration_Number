@@ -12,7 +12,7 @@ function RegNumberStorage(storedRegNumbers) {
   // set Registration number
   function setReg(value) {
     if(RegNumberMap[value]===undefined){
-    if (value !=="" && value.startsWith("CA") || value.startsWith("CL") || value.startsWith("CAW") || value.startsWith("CJ")) {
+    if (value !=="" && value.length >0 && value.startsWith("CA") || value.startsWith("CL") || value.startsWith("CAW") || value.startsWith("CJ")) {
       regNumber = value.toUpperCase();
       return true;
     }
@@ -157,13 +157,15 @@ function registrationEntered() {
     messageAlert.classList.remove("addDisplay");
     }
 
- if (regText ==="" && (!regText.startsWith("CA") || !regText.startsWith("CJ") ||!regText.startsWith("CL") || !regText.startsWith("CAW"))) {
-       // messageAlert.innerHTML = "Sorry the registration number you entered is incorrect";
-       messageAlert.classList.add("addDisplay");
-     }
-     else {
-         messageAlert.innerHTML = "";
-     }
+    if (regText ==="" || (!regText.startsWith("CA") && !regText.startsWith("CJ") &&!regText.startsWith("CL") && !regText.startsWith("CAW"))) {
+            messageAlert.innerHTML = "Sorry the registration number you entered is incorrect";
+         messageAlert.classList.add("addDisplay");
+         console.log("found");
+        }
+    else {
+            messageAlert.innerHTML = "";
+            console.log("remove");
+        }
 
 
 
