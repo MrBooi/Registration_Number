@@ -46,8 +46,6 @@ describe('The Registration_Numbers function', function() {
 });
 
 
-
-
 describe('fillter registration by Town function', function() {
   it('shoud display all registration numbers of CA if user filtered by CA ', function() {
      var addRegistrationTwo= RegNumberStorage();
@@ -74,10 +72,7 @@ describe('fillter registration by Town function', function() {
       assert.deepEqual(addRegistration.filterTowns("CL"),{ 'CL 124': 0});
   });
 
-  it('shoud display all registration numbers of Towns if user did not fillter by CA,CJ,CL and CAW', function() {
-     var addRegistrationTwo= RegNumberStorage();
-     assert.deepEqual(addRegistration.filterTowns(""),{'CA 124': 0, 'CA 125':0, "CAW 124":0 , 'CJ 124':0 ,'CL 124':0});
-  });
+
 });
 
  describe('Intialize Map', function() {
