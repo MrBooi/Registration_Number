@@ -5,6 +5,7 @@
 
 body {
   background-color: white;
+  width: 100%;
 
 }
 
@@ -39,7 +40,7 @@ header h1 {
   border: 1px solid #ccc;
 }
 
-.AddReg {
+.AddReg, .AddRegTwo {
   width: 20%;
   background-color: blue;
   color: white;
@@ -62,7 +63,11 @@ color: orange;
   color: orange;
 }
 
-
+h5{
+  color: lightgray;
+  border-bottom:  1px solid blue;
+  font: 1rem;
+}
 
 .town {
   display: inline-block;
@@ -81,11 +86,16 @@ color: orange;
   width: 100px;
 }
 
-.displayList {
+.displayList{
   list-style-type: none;
 }
 
-.displayList li {
+.displayListtwo{
+list-style-type: none;
+
+}
+
+.regPlate {
   text-align: center;
   background-color: yellow;
   border-radius: 6px;
@@ -118,7 +128,7 @@ color: orange;
   }
 
 
-Regheader{
+.Regheader{
   padding-bottom: 4rem;
 }
   .Regheader, .regnum {
@@ -147,7 +157,7 @@ Regheader{
   .townName {
     width: 45%;
   }
-  .displayList li {
+  .displayList , .displayListtwo li {
       display: block;
       float: left;
     font-size: 1.5rem;
@@ -157,4 +167,10 @@ Regheader{
   .clearBtn {
     width: 20%;
   }
+
+h5{
+  color: lightgray;
+}
+
+
 }

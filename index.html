@@ -6,73 +6,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Registration_Numbers</title>
-  <!-- stylesheet for css -->
-  <link rel="stylesheet" href="./css/simple-grid.css">
-  <link rel="stylesheet" href="./css/Registration_Numbers.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+  <script type="text/x-template" class="registrationTemplate">
+    {{#each regList}}
+    <li class="regPlate">{{@key}}</li>
+    {{/each}}
+  </script>
 </head>
 
 <body>
-  <!--Header section-->
+  <header>
+    <h1>Registration Numbers App</h1>
+    <p>using javascript with Handlebars</p>
+  </header>
   <div class="row">
-    <div class="col-12">
-      <header>
-        <h1>Registration Numbers</h1>
-      </header>
-    </div>
-  </div>
-  <div class="container">
-  <!--input Registration section-->
-  <div class="row">
-    <div class="col-12">
-      <div class="Regheader">
-        <span class="regnum">Registration Number:</span>
-        <input type="text" name="Reginput" class="EnterReg" value="" placeholder="Enter Registration Number">
-        <button type="button" name="button" class="AddReg">Add</button>
-        <div class="messageDisplay  ">
-      <p>Sorry the registration number you entered is incorrect</p>
+    <div class="six columns">
+      <div class="heading">
+        <h5>This side is for a static HTML</h5>
+
+      </div>
+      <div class="box">
+        <label for="">Registration Number:</label>
+        <input type="text" name="enteredReg" class="EnterReg" placeholder="Enter registration Number" required=true>
+        <button type="click" class="AddReg">Add</button>
+        <div class="messageDisplay">
+          <p>sorry the registration number you entered is incorrect</p>
         </div>
       </div>
+      <div class="box">
+        <label for="">Select Town:</label>
+        <div class="selectedTown">
+          <select name="" class="townName">
+                        <option value="">AllTown</option>
+                        <option value="CA ">Cape Town</option>
+                        <option value="CJ">Paarl</option>
+                        <option value="CAW">George</option>
+                        <option value="CL">Stellenbosh</option>
+                </select>
+          <div></div>
+          <button type="submit" class="clearBtn">clear</button>
+        </div>
+      </div>
+      <div class="box fitbox">
+        <div class="displayReg">
+          <ul class="displayList">
+
+          </ul>
+        </div>
+
+      </div>
     </div>
-  </div>
 
-  <!--Selected Town-->
 
-  <div class="row">
-    <div class="col-12">
-      <span class="town">Town:</span>
-      <div class="SelectedTown">
-    <select class="townName" name="">
-    <option value="AllTown">SelectAllTown</option>
-    <option value="Cape Town">Cape Town</option>
-    <option value="Paarl">Paarl</option>
-    <option value="George">George</option>
-    <option value="Stellenbosh">Stellenbosh</option>
-    </select>
-    <button type="button" name="button" class="clearBtn">Clear</button>
+    <div class="six columns">
+      <div class="heading">
+        <h5>This side is using templates and handlebar's</h5>
+      </div>
+      <div class="box">
+        <label for="">Registration Number:</label>
+        <input type="text" name="enteredReg" class="EnterRegTwo" placeholder="Enter registration Number" required=true>
+        <button type="click" class="AddRegTwo">Add</button>
+        <div class="messageDisplayTwo">
+          <p>sorry the registration number you entered is incorrect</p>
+        </div>
+      </div>
+
+      <div class="box">
+        <label for="">Select Town:</label>
+        <div class="seletedTownTwo">
+          <select name="" id="" class="townNameTwo">
+                    <option value="">AllTown</option>
+                    <option value="CA ">Cape Town</option>
+                    <option value="CJ">Paarl</option>
+                    <option value="CAW">George</option>
+                    <option value="CL">Stellenbosh</option>
+                </select>
+        </div>
+        <button type="submit" class="clearBtnTwo">clear</button>
+      </div>
+
+      <div class="box">
+        <div class="displayRegTwo">
+          <ul class="displayListTwo">
+
+          </ul>
+        </div>
+
       </div>
     </div>
   </div>
-  <!--display Registration number section-->
-  <div class="row">
-    <div class="col-10">
-      <div class="displayReg">
-        <ul class="displayList">
-
-        </ul>
-      </div>
-    </div>
   </div>
-
-<!-- clearButton -->
- <!-- <div class="row">
-   <div class="col-12">
-
-   </div>
- </div> -->
   </div>
-
-
-
   <script src="./js/Registration_Numbers.js"></script>
+  <script src="./js/Registration_DOMTwo.js"></script>
 </body>
+
 </html>

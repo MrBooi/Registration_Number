@@ -23,41 +23,25 @@ describe('The Registration_Numbers function', function() {
   });
 
 
-  // it('should display a Message called "Sorry the registration number you entered is incorrect" if user entered registration number'
-  // + " does not startsWith CA, CL , CJ ,CAW", function() {
-  //    var addRegistration = RegNumberStorage();
-  //     addRegistration.setRegistration(" 123");
-  //   assert.equal(addRegistration.getMessage() ,"Sorry the registration number you entered is incorrect");
-  // });
-
   it('should display this object "{ CAW 123: 0, CA 123: 0 }" if user entered the following registration numbers CAW 123 and CA 123 ', function() {
      var addRegistration = RegNumberStorage();
       addRegistration.setRegistration('CAW 123' );
-       addRegistration.localRegSet();
        addRegistration.setRegistration('CA 123');
-       addRegistration.localRegSet();
       assert.deepEqual(addRegistration.getMap() ,{ 'CAW 123': 0, 'CA 123': 0 });
   });
   it('should display one registration number in an object "{ CAW 123: 0 }" if user entered same registration number twice ', function() {
      var addRegistration = RegNumberStorage();
       addRegistration.setRegistration('CAW 123');
-       addRegistration.localRegSet();
        addRegistration.setRegistration('CAW 123');
-       addRegistration.localRegSet();
       assert.deepEqual(addRegistration.getMap() ,{ 'CAW 123': 0});
   });
 
   it('should display "{\'CAW 123\': 0, \'CA 123\':0, "CJ 123":0 , \'CL 123\':0}" this object if user entered all registration numbers ', function() {
      var addRegistration = RegNumberStorage();
       addRegistration.setRegistration('CAW 123');
-       addRegistration.localRegSet();
        addRegistration.setRegistration('CA 123');
-       addRegistration.localRegSet();
        addRegistration.setRegistration('CJ 123');
-       addRegistration.localRegSet();
        addRegistration.setRegistration('CL 123');
-       addRegistration.localRegSet();
-       console.log(addRegistration.getMap());
       assert.deepEqual(addRegistration.getMap() ,{'CAW 123': 0, 'CA 123':0, "CJ 123":0 , 'CL 123':0});
   });
 
