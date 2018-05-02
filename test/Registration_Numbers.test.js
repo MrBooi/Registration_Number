@@ -80,12 +80,11 @@ describe('fillter registration by Town function', function() {
   });
 });
 
- describe('Handlebars', function() {
+ describe('Intialize Map', function() {
+     it('shoud display all registration numbers of Towns if user did not fillter by CA,CJ,CL and CAW', function() {
+   let  IntializeLocal ={'CA 124': 0, 'CA 125':0, "CAW 124":0 , 'CJ 124':0 ,'CL 124':0};
+   var addRegistration= RegNumberStorage(IntializeLocal);
 
-   it('shoud display ', function() {
-    
-
-   });
-
-
+  assert.deepEqual(addRegistration.getMap(),{'CA 124': 0, 'CA 125':0, "CAW 124":0 , 'CJ 124':0 ,'CL 124':0});
+    });
   });

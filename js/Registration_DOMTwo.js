@@ -17,7 +17,6 @@ function registrationEnteredTwo() {
   var regTextTwo = EnteredRegTwo.value.trim().toUpperCase();
   if (addRegistrationTwo.setRegistration(regTextTwo)) {
     localStorage.setItem("RegNumbersTwo", JSON.stringify(addRegistrationTwo.getMap()));
-
     displayRegTwo.innerHTML = regTemplate({
       regList: addRegistrationTwo.getMap()
     });
@@ -31,8 +30,6 @@ function registrationEnteredTwo() {
   BtnAddRegTwo.addEventListener("click", function() {
   registrationEnteredTwo();
   EnteredRegTwo.value = "";
-
-
  });
 
  RegClearBtnTwo.addEventListener("click", function() {
