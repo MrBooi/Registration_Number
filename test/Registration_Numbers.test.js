@@ -26,13 +26,13 @@ describe('The Registration_Numbers function', function() {
      var addRegistration = RegNumberStorage();
       addRegistration.setRegistration('CAW 123' );
        addRegistration.setRegistration('CA 123');
-      assert.deepEqual(addRegistration.getMap() ,{ 'CAW 123': 0, 'CA 123': 0 });
+      assert.deepEqual(addRegistration.getMap() ,[ 'CAW 123', 'CA 123' ] );
   });
   it('should display one registration number in an object "{ CAW 123: 0 }" if user entered same registration number twice ', function() {
      var addRegistration = RegNumberStorage();
       addRegistration.setRegistration('CAW 123');
        addRegistration.setRegistration('CAW 123');
-      assert.deepEqual(addRegistration.getMap() ,{ 'CAW 123': 0});
+      assert.deepEqual(addRegistration.getMap() ,[ 'CAW 123'] );
   });
 
   it('should display "{\'CAW 123\': 0, \'CA 123\':0, "CJ 123":0 , \'CL 123\':0}" this object if user entered all registration numbers ', function() {
@@ -41,35 +41,35 @@ describe('The Registration_Numbers function', function() {
        addRegistration.setRegistration('CA 123');
        addRegistration.setRegistration('CJ 123');
        addRegistration.setRegistration('CL 123');
-      assert.deepEqual(addRegistration.getMap() ,{'CAW 123': 0, 'CA 123':0, "CJ 123":0 , 'CL 123':0});
+      assert.deepEqual(addRegistration.getMap() ,['CAW 123', 'CA 123', "CJ 123", 'CL 123']);
   });
 });
 
 
 describe('fillter registration by Town function', function() {
   it('shoud display all registration numbers of CA if user filtered by CA ', function() {
-     var addRegistrationTwo= RegNumberStorage();
+     var addRegistration= RegNumberStorage();
        addRegistration.setRegistration('CA 124');
        addRegistration.setRegistration('CA 125');
-      assert.deepEqual(addRegistration.filterTowns("CA "),{ 'CA 124': 0, 'CA 125': 0 });
+      assert.deepEqual(addRegistration.filterTowns("CA "),['CA 124' , 'CA 125']);
   });
 
   it('shoud display all registration numbers of CJ if user filtered by CJ ', function() {
-     var addRegistrationTwo= RegNumberStorage();
+     var addRegistration= RegNumberStorage();
        addRegistration.setRegistration('CJ 124');
-      assert.deepEqual(addRegistration.filterTowns("CJ"),{ 'CJ 124': 0});
+      assert.deepEqual(addRegistration.filterTowns("CJ"),[ 'CJ 124']);
   });
 
   it('shoud display all registration numbers of CAW if user filtered by CAW ', function() {
-     var addRegistrationTwo= RegNumberStorage();
+     var addRegistration= RegNumberStorage();
        addRegistration.setRegistration('CAW 124');
-      assert.deepEqual(addRegistration.filterTowns("CAW"),{ 'CAW 124': 0});
+      assert.deepEqual(addRegistration.filterTowns("CAW"),['CAW 124']);
   });
 
   it('shoud display all registration numbers of CL if user filtered by CL', function() {
-     var addRegistrationTwo= RegNumberStorage();
+     var addRegistration= RegNumberStorage();
        addRegistration.setRegistration('CL 124');
-      assert.deepEqual(addRegistration.filterTowns("CL"),{ 'CL 124': 0});
+      assert.deepEqual(addRegistration.filterTowns("CL"),['CL 124']);
   });
 
 
@@ -77,9 +77,9 @@ describe('fillter registration by Town function', function() {
 
  describe('Intialize Map', function() {
      it('shoud display all registration numbers of Towns if user did not fillter by CA,CJ,CL and CAW', function() {
-   let  IntializeLocal ={'CA 124': 0, 'CA 125':0, "CAW 124":0 , 'CJ 124':0 ,'CL 124':0};
+   let  IntializeLocal =['CA 124', 'CA 125', "CAW 124" , 'CJ 124' ,'CL 124'];
    var addRegistration= RegNumberStorage(IntializeLocal);
 
-  assert.deepEqual(addRegistration.getMap(),{'CA 124': 0, 'CA 125':0, "CAW 124":0 , 'CJ 124':0 ,'CL 124':0});
+  assert.deepEqual(addRegistration.getMap(),['CA 124', 'CA 125', "CAW 124" , 'CJ 124' ,'CL 124']);
     });
   });

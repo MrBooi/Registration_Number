@@ -8,12 +8,17 @@ var messageAlert = document.querySelector('.messageDisplay');
 // factory function
 function RegNumberStorage(storedRegNumbers) {
   var regNumber = "";
-  var RegNumberMap = storedRegNumbers || {};
-  // set Registration number
-  function setReg(value) {
-    if (storedRegNumbers) {
-      RegNumberMap = storedRegNumbers;
+  var RegNumberMap =  {};
+
+  if (storedRegNumbers) {
+    for (var i = 0; i < storedRegNumbers.length; i++) {
+        let regStored = storedRegNumbers[i];
+        RegNumberMap[regStored] = 0;
     }
+  }
+
+  function setReg(value) {
+
     if (RegNumberMap[value] === undefined) {
       if (value !== "" && value.length > 0 && value.startsWith("CA") || value.startsWith("CL") || value.startsWith("CAW") || value.startsWith("CJ")) {
         regNumber = value;
@@ -24,8 +29,8 @@ function RegNumberStorage(storedRegNumbers) {
     }
   }
   // getmap function
-  function getRegistrationMap() {
-    return RegNumberMap;
+  function getRegistrationMap(storedRegNumbers) {
+    return  Object.keys(RegNumberMap);
   }
   // get registration number
   function getRegistationNumber() {
@@ -41,22 +46,16 @@ function RegNumberStorage(storedRegNumbers) {
   // filterby function
   function filterBy(filterTown) {
 
-    var filter = {};
-    var regNums = Object.keys(storedRegNumbers);
-    if (filterTown !== '') {
-      for (let i = 0; i < regNums.length; i++) {
-        if (regNums[i].startsWith(filterTown)) {
-          filter[regNums[i]] = 0;
-        }
+    var regNums = Object.keys(RegNumberMap);
+    if (filterTown === '') {
+        return regNums;
       }
-    } else {
-      for (let i = 0; i < regNums.length; i++) {
-        filter[regNums[i]] = 0;
-      }
-    }
-    location.hash = filterTown;
+    var townFilter = regNums.filter(function(regNumber) {
 
-    return filter;
+    return regNumber.startsWith(filterTown)
+  });
+    location.hash = filterTown;
+    return townFilter;
   }
   // get selected Town
   function getSelectedTownList() {
@@ -108,7 +107,7 @@ localStorage.removeItem('RegNumbers');
 
 window.addEventListener("load", function() {
   if (location.has !== "") {
-    var regList = Object.keys(addRegistration.filterTowns(""));
+    var regList = addRegistration.filterTowns("");
     for (let i = 0; i < regList.length; i++) {
       addRegistration.createLi(regList[i]);
     }
@@ -117,7 +116,7 @@ window.addEventListener("load", function() {
 
 selectDrop.addEventListener("change", function() {
   displayReg.innerHTML = "";
-  var regList = Object.keys(addRegistration.filterTowns(selectDrop.value));
+  var regList = addRegistration.filterTowns(selectDrop.value);
   for (let i = 0; i < regList.length; i++) {
     addRegistration.createLi(regList[i]);
   }

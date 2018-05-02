@@ -30,7 +30,7 @@ function registrationEnteredTwo() {
   BtnAddRegTwo.addEventListener("click", function() {
   registrationEnteredTwo();
   EnteredRegTwo.value = "";
- });
+});
 
  RegClearBtnTwo.addEventListener("click", function() {
   localStorage.removeItem('RegNumbersTwo');
@@ -41,9 +41,10 @@ function registrationEnteredTwo() {
  });
 
  window.addEventListener("load", function() {
-  var regList = addRegistrationTwo.filterTowns("");
+  var regList =addRegistrationTwo.filterTowns("");
+    
   displayRegTwo.innerHTML = regTemplate({
-    regPlate: 'regPlate',
+    // regPlate: 'regPlate',
     regList: regList
   });
  });
