@@ -55,6 +55,7 @@ function RegNumberStorage(storedRegNumbers) {
       }
     }
     location.hash = filterTown;
+
     return filter;
   }
   // get selected Town
@@ -62,10 +63,7 @@ function RegNumberStorage(storedRegNumbers) {
     return tempTown;
   }
   // clear localstorage and Maps
-  function clearRegMap() {
-    // RegNumberMap = {};
-    return RegNumberMap;
-  }
+
   // returning all functions inside a factory function
   return {
     setRegistration: setReg,
@@ -74,7 +72,7 @@ function RegNumberStorage(storedRegNumbers) {
     filterTowns: filterBy,
     createLi: createItems,
     getListSelectedTown: getSelectedTownList,
-    clearLocal: clearRegMap
+
   }
 }
 
@@ -110,7 +108,7 @@ localStorage.removeItem('RegNumbers');
 
 window.addEventListener("load", function() {
   if (location.has !== "") {
-    var regList = Object.keys(addRegistration.filterTowns(location.hash.substring(1, 4).replace('%', ' ')));
+    var regList = Object.keys(addRegistration.filterTowns(""));
     for (let i = 0; i < regList.length; i++) {
       addRegistration.createLi(regList[i]);
     }

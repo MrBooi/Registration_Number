@@ -123,3 +123,29 @@ ul {
   margin-left: 6rem;
   overflow: hidden;
 }
+
+.clearBtn , .clearBtnTwo{
+
+  background-color: lightgreen;
+}
+
+
+
+@media screen  and (min-width: 720px){
+
+  header p {
+     margin-left: 4rem;
+    text-align: left;
+  }
+
+h5{
+  margin-left: 1em;
+}
+
+
+.regPlate {
+
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}

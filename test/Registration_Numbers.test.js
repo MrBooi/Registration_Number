@@ -1,6 +1,5 @@
 describe('The Registration_Numbers function', function() {
 
-
   it('should display "CA 123" if user entered CA 123 in a texfield of registration numbers', function() {
      var addRegistration = RegNumberStorage();
       addRegistration.setRegistration("CA 123");
@@ -44,7 +43,49 @@ describe('The Registration_Numbers function', function() {
        addRegistration.setRegistration('CL 123');
       assert.deepEqual(addRegistration.getMap() ,{'CAW 123': 0, 'CA 123':0, "CJ 123":0 , 'CL 123':0});
   });
-
-
-
 });
+
+
+
+
+describe('fillter registration by Town function', function() {
+  it('shoud display all registration numbers of CA if user filtered by CA ', function() {
+     var addRegistrationTwo= RegNumberStorage();
+       addRegistration.setRegistration('CA 124');
+       addRegistration.setRegistration('CA 125');
+      assert.deepEqual(addRegistration.filterTowns("CA "),{ 'CA 124': 0, 'CA 125': 0 });
+  });
+
+  it('shoud display all registration numbers of CJ if user filtered by CJ ', function() {
+     var addRegistrationTwo= RegNumberStorage();
+       addRegistration.setRegistration('CJ 124');
+      assert.deepEqual(addRegistration.filterTowns("CJ"),{ 'CJ 124': 0});
+  });
+
+  it('shoud display all registration numbers of CAW if user filtered by CAW ', function() {
+     var addRegistrationTwo= RegNumberStorage();
+       addRegistration.setRegistration('CAW 124');
+      assert.deepEqual(addRegistration.filterTowns("CAW"),{ 'CAW 124': 0});
+  });
+
+  it('shoud display all registration numbers of CL if user filtered by CL', function() {
+     var addRegistrationTwo= RegNumberStorage();
+       addRegistration.setRegistration('CL 124');
+      assert.deepEqual(addRegistration.filterTowns("CL"),{ 'CL 124': 0});
+  });
+
+  it('shoud display all registration numbers of Towns if user did not fillter by CA,CJ,CL and CAW', function() {
+     var addRegistrationTwo= RegNumberStorage();
+     assert.deepEqual(addRegistration.filterTowns(""),{'CA 124': 0, 'CA 125':0, "CAW 124":0 , 'CJ 124':0 ,'CL 124':0});
+  });
+});
+
+ describe('Handlebars', function() {
+
+   it('shoud display ', function() {
+    
+
+   });
+
+
+  });
