@@ -112,7 +112,7 @@ ul {
   list-style-type: none;
 }
 
-.regPlate {
+.displayList li, .displayListTwo li {
   text-align: center;
   background-color: yellow;
   border-radius: 6px;
