@@ -22,9 +22,9 @@ function registrationEnteredTwo() {
       regList: addRegistrationTwo.getMap()
     });
   } else {
-    let map = addRegistration.getMap()
+    let map = addRegistrationTwo.getMap()
 
-  map.indexOf(regTextTwo)!=-1 != -1 ? messageAlertTwo.innerHTML = "Registration you entered already exist" : messageAlertTwo.innerHTML = "Registration you entered is incorrect";
+  map.indexOf(regTextTwo)!=-1  ? messageAlertTwo.innerHTML = "Registration you entered already exist" : messageAlertTwo.innerHTML = "Registration you entered is incorrect";
 
   }
 }
