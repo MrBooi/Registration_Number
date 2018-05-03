@@ -17,8 +17,9 @@ var messageAlert = document.querySelector('.messageDisplay');
       localStorage.setItem("RegNumbers", JSON.stringify(addRegistration.getMap()));
       addRegistration.createLi(addRegistration.getRegNumber());
     } else {
+      let map = addRegistration.getMap()
 
-      storedRegNumbers.includes(regText) ? messageAlert.innerHTML = "Registration you entered already exist" : messageAlert.innerHTML = "Registration you entered is incorrect";
+    map.indexOf(regText)!=-1 ? messageAlert.innerHTML = "Registration you entered already exist" : messageAlert.innerHTML = "Registration you entered is incorrect";
     }
   }
 
