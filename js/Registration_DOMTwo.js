@@ -15,15 +15,16 @@ var addRegistrationTwo = RegNumberStorage(storedRegNumbersTwo);
 
 function registrationEnteredTwo() {
   var regTextTwo = EnteredRegTwo.value.trim().toUpperCase();
+    messageAlertTwo.innerHTML = "";
   if (addRegistrationTwo.setRegistration(regTextTwo)) {
     localStorage.setItem("RegNumbersTwo", JSON.stringify(addRegistrationTwo.getMap()));
     displayRegTwo.innerHTML = regTemplate({
       regList: addRegistrationTwo.getMap()
     });
-
-    messageAlertTwo.innerHTML = "";
   } else {
-    messageAlertTwo.classList.add("addDisplayTwo");
+
+  storedRegNumbersTwo.includes(regTextTwo) ? messageAlertTwo.innerHTML = "Registration you entered already exist" : messageAlertTwo.innerHTML = "Registration you entered is incorrect";
+
   }
 }
 
@@ -42,7 +43,7 @@ function registrationEnteredTwo() {
 
  window.addEventListener("load", function() {
   var regList =addRegistrationTwo.filterTowns("");
-    
+
   displayRegTwo.innerHTML = regTemplate({
     // regPlate: 'regPlate',
     regList: regList
