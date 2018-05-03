@@ -75,19 +75,16 @@ header p {
   width: 100px;
 }
 
-.messageDisplay p{
-  display: none;
-  font-size: 10rem;
-  color: orange;
 
-}
-.messageDisplayTwo p {
-  display: none;
-  font-size: 10rem;
+.messageDisplayTwo  {
+  display: Block;
+  font-size: 10px;
+  font-size: 1.3rem;
+  line-height: 2rem;
   color: orange;
 }
 
-.messageDisplay,  .addDisplay  p {
+.messageDisplay  {
   display: Block;
   font-size: 10px;
   font-size: 1.3rem;
@@ -96,8 +93,8 @@ header p {
 }
 
 
- .messageDisplayTwo,  .addDisplayTwo p {
-  display: Block;
+ .messageDisplayTwo p,  .addDisplayTwo p {
+
   font-size: 10px;
   font-size: 1.3rem;
   line-height: 2rem;
