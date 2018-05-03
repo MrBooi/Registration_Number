@@ -27,7 +27,7 @@ function registrationEnteredTwo() {
 
   }
 }
-
+ // btn
   BtnAddRegTwo.addEventListener("click", function() {
   registrationEnteredTwo();
   EnteredRegTwo.value = "";
